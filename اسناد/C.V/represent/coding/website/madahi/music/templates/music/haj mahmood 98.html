@@ -1,0 +1,33 @@
+{% extends "music/base.html" %}
+{% block title %}
+	<title>Haj Mahmood Karimi 98</title>
+{% endblock %}
+{% block body %}
+	<div class="panel panel-info">
+		{% for album in all_album %}
+			<div class="panel-heading">
+				<a class="display-5" data-toggle="collapse" href="#album">{{ album.artist }} :</a>
+				<a class="display-6" data-toggle="collapse" href="#album">{{ album.title }} :</a>
+			</div>
+		{% endfor %}
+			<div class="container text-muted">
+				<div class="panel-body">
+					<div class="row" id='album'>
+						{% for song in all_song %}
+							<div class="card col-xs-6 col-sm-6 col-md-4 col-lg-3 px-1 py-5">
+								<div class="card" style="background-color: Lavender; size: 25%">
+									<img src="{{ song.logo }}" alt="something went wrong" class="card-img-top img-fluid" style="height: 280px">
+									<div class="card-block text-center">
+										<h4 class="card-title">{{ song.song_title }}</h4>
+										<p class="card-text">{{ song.des }}</p>
+										<audio src="{{ song.path }}" alt="something went wrong" controls loop></audio>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+	</div>
+
+{% endblock %}

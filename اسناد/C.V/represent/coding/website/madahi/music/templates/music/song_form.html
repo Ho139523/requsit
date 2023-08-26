@@ -1,0 +1,21 @@
+{% extends 'music/base.html' %}
+{% block title %}<title>add a new song</title>{% endblock %}
+{% block body %}
+	<div class="panel panel-info">
+		<p class="panel-heading text-first lead">آهنگ جدید</p>
+		<div class="panel-body col-12">
+			<form class="form-horizontal" action="{% url 'music:song-add' %}" method="post" enctype="multipart/formdata">
+				{% csrf_token %}
+				{% include "music/form_template.html" %}
+				<div class="form-group">
+					<div class="col-2-offset col-sm-10">
+						<button type="submit" class="btn btn-seccuss"> ثبت </button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+{%  endblock %}

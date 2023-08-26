@@ -1,0 +1,40 @@
+{% extends 'football/base.html' %}
+{% load static %}
+{% block title %}
+    <title>{{ news.title }}</title>
+{% endblock %}
+{% block header %}
+    <!-- Page Header -->
+      <header class="masthead" style="background-image: url('../../static/football/images/uploaded images/{{ news.image.name }}')">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="site-heading">
+                <h1>{{ news.title }}</h1>
+                <span class="subheading">News In Details</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+{% endblock %}
+{% block body %}
+    <div style="text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-preview">
+                        <h2 class="post-title">{{ news.title }}</h2>
+                        <p>
+                        {{ news.description|linebreaks }}
+                        </p>
+                        <p class="post-meta">Posted by:
+                            <br>Published:
+                            {{ news.published }}</p><a class='subheading' href='#'>{{ news.Category.title }}</a><hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
